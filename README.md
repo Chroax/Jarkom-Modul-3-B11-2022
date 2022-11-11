@@ -23,7 +23,7 @@
 
 ## Topografi
 
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/topografi.PNG)
+![image](https://i.ibb.co/pKHz4VD/topografi.png)
 
 ## Konfigurasi
 
@@ -329,7 +329,7 @@ PENJELASAN
 
 ### Test
 
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal3/Capture1.PNG)
+![image](https://i.ibb.co/tBH44mm/Capture1.png)
 
 
 ## Question 4
@@ -368,7 +368,7 @@ PENJELASAN
 
 ### Test
 
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal4/Capture1.PNG)
+![image](https://i.ibb.co/fqVCLvG/Capture1.png)
 
 
 ## Question 5
@@ -423,9 +423,9 @@ PENJELASAN
 
 ### Test
 
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal5/Capture1.PNG)
+![image](https://i.ibb.co/nj66hz2/Capture1.png)
 
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal5/Capture2.PNG)
+![image](https://i.ibb.co/8XH99hc/Capture2.png)
 
 
 ## Question 6
@@ -494,7 +494,7 @@ PENJELASAN
 
 ### Test
 
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal7/Capture1.PNG)
+![image](https://i.ibb.co/sHC9zGk/Capture1.png)
 
 
 ## Question 8-9
