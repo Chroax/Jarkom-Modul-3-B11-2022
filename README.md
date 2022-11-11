@@ -357,7 +357,7 @@ PENJELASAN
 
     ...
     ```
-    
+
 PENJELASAN
 
 - **Eden, NewstonCastle & KemonoPark**
@@ -505,80 +505,133 @@ PENJELASAN
 
 PENJELASAN
 
-> Script dibawah ini terdapat pada **root node WISE**, untuk menjalankannya bisa langsung dengan melakukan command `bash no8.sh`
+> Script dibawah ini terdapat pada **root node Berlint**, untuk menjalankannya bisa langsung dengan melakukan command `bash no8-9.sh`
+
+- **Berlint**
+
+    ```
+    echo -e '
+    .franky-work.com
+    .loid-work.com
+    ' > /etc/squid/domain.acl
+
+    echo -e '
+    http_port 8080
+    visible_hostname Berlint
+
+    #---------------------------------------------------------
+    #Time
+    acl AVAILABLE_1 time MTWHF 00:00-07:59
+    acl AVAILABLE_2 time MTWHF 17:01-23:59
+    acl AVAILABLE_3 time AS 00:00-23:59
+
+    acl WORK_TIME time MTWHF 08:00-17:00
+
+    #---------------------------------------------------------
+    #Domain
+    acl RESTRICTED_DOMAIN dstdomain "/etc/squid/domain.acl"
+
+    #---------------------------------------------------------
+
+    http_access deny RESTRICTED_DOMAIN AVAILABLE_1
+    http_access deny RESTRICTED_DOMAIN AVAILABLE_2
+    http_access deny RESTRICTED_DOMAIN AVAILABLE_3
+
+    http_access allow AVAILABLE_1
+    http_access allow AVAILABLE_2
+    http_access allow AVAILABLE_3
+
+    http_access allow RESTRICTED_DOMAIN WORK_TIME
+
+    ' > /etc/squid/squid.conf
+
+    service squid restart
+    ```
+
+PENJELASAN
+
+> Script dibawah ini terdapat pada **root node WISE**, untuk menjalankannya bisa langsung dengan melakukan command `bash no9.sh`
 
 - **WISE**
 
     ```
     echo -e '
+    zone "loid-work.com" {
+        type master;
+        file "/etc/bind/wise/loid-work.com";
+    };
+
+    zone "franky-work.com" {
+        type master;
+        file "/etc/bind/wise/franky-work.com";
+    };
+    ' > /etc/bind/named.conf.local
+
+    mkdir /etc/bind/wise
+
+    echo -e '
     ;
     ; BIND data file for local loopback interface
     ;
     $TTL    604800
-    @       IN      SOA     wise.b11.com. root.wise.b11.com. (
-                                  2         ; Serial
+    @       IN      SOA     franky-work.com. root.franky-work.com. (
+                            2022100601      ; Serial
                              604800         ; Refresh
                               86400         ; Retry
                             2419200         ; Expire
                              604800 )       ; Negative Cache TTL
     ;
-    @                       IN      NS      wise.b11.com.
-    @                       IN      A       192.178.2.3             ; IP Eden
-    www                     IN      CNAME   wise.b11.com.
-    eden                    IN      A       192.178.2.3             ; IP Eden
-    www.eden                IN      CNAME   eden.wise.b11.com.      ; IP Eden
-    ns1                     IN      A       192.178.2.2             ; IP Berlint
-    operation               IN      NS      ns1
-    ' > /etc/bind/wise/wise.b11.com
+    @       IN      NS      franky-work.com.
+    @       IN      A       192.178.3.13
+    www     IN      CNAME   franky-work.com.
+    @       IN      AAAA    ::1
+    ' > /etc/bind/wise/franky-work.com
+
+    echo -e '
+    ;
+    ; BIND data file for local loopback interface
+    ;
+    $TTL    604800
+    @       IN      SOA     loid-work.com. root.loid-work.com. (
+                            2022100601      ; Serial
+                             604800         ; Refresh
+                              86400         ; Retry
+                            2419200         ; Expire
+                             604800 )       ; Negative Cache TTL
+    ;
+    @       IN      NS      loid-work.com.
+    @       IN      A       192.178.3.13
+    www     IN      CNAME   loid-work.com.
+    @       IN      AAAA    ::1
+    ' > /etc/bind/wise/loid-work.com
 
     service bind9 restart
     ```
 
 PENJELASAN
 
-> Script dibawah ini terdapat pada **root node Eden**, untuk menjalankannya bisa langsung dengan melakukan command `bash no8.sh`
+> Script dibawah ini terdapat pada **root node Eden**, untuk menjalankannya bisa langsung dengan melakukan command `bash install.sh`
 
 - **Eden**
 
     ```
-    echo "<VirtualHost *:80>
-            ServerAdmin webmaster@localhost
-            DocumentRoot /var/www/wise.b11.com
-            ServerName wise.b11.com
-            ServerAlias www.wise.b11.com
-            ErrorLog \${APACHE_LOG_DIR}/error.log
-            CustomLog \${APACHE_LOG_DIR}/access.log combined
-    </VirtualHost>" > /etc/apache2/sites-available/wise.b11.com.conf
+    apt-get update
+    echo "" | apt-get install apache2
+    echo "" | apt-get install libapache2-mod-php7.0
+    service apache2 start
 
-    a2ensite wise.b11.com
+    echo "" | apt-get install wget -y
+    echo "" | apt-get install unzip -y
+    echo "" | apt-get install php
 
-    mkdir /var/www/wise.b11.com
+    cd /var/www
 
-    cp -RT /var/www/wise /var/www/wise.b11.com
+    wget 'https://github.com/Chroax/Jarkom-Modul-2-B11-2022/raw/main/resources/wise.zip'
 
-    service apache2 restart
+    unzip wise.zip
+
+    rm wise.zip
     ```
-
-PENJELASAN
-
-> Script dibawah ini terdapat pada **root node SSS & Garden**, untuk menjalankannya bisa langsung dengan melakukan command `bash no8.sh`
-
-- **SSS & Garden**
-
-    ```
-    lynx wise.B11.com
-    ```
-
-### Test
-
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-2-B11-2022/main/image/Soal8/Capture1.PNG)
-
-
-## Question 9
-
-> Adapun pada hari dan jam kerja sesuai nomor (8), client hanya dapat mengakses domain loid-work.com dan franky-work.com (IP tujuan domain dibebaskan)
-
-### Script
 
 PENJELASAN
 
@@ -589,37 +642,97 @@ PENJELASAN
     ```
     echo "<VirtualHost *:80>
             ServerAdmin webmaster@localhost
-            DocumentRoot /var/www/wise.b11.com
-            ServerName wise.b11.com
-            ServerAlias www.wise.b11.com
+            DocumentRoot /var/www/loid-work.com
+            ServerName loid-work.com
+            ServerAlias www.loid-work.com
+            ErrorLog ${APACHE_LOG_DIR}/error.log
+            CustomLog ${APACHE_LOG_DIR}/access.log combined
+    </VirtualHost>" > /etc/apache2/sites-available/loid-work.com.conf
 
-    	<Directory /var/www/wise.b11.com/index.php/home>
-                    Options +Indexes
-            </Directory>
-            Alias "/home" "/var/www/wise.b11.com/index.php/home"
+    a2ensite loid-work.com
 
-            ErrorLog \${APACHE_LOG_DIR}/error.log
-            CustomLog \${APACHE_LOG_DIR}/access.log combined
-    </VirtualHost>" > /etc/apache2/sites-available/wise.b11.com.conf
+    mkdir /var/www/loid-work.com
 
-    a2ensite wise.b11.com
+    cp -RT /var/www/wise /var/www/loid-work.com
+
+    echo "<VirtualHost *:80>
+            ServerAdmin webmaster@localhost
+            DocumentRoot /var/www/franky-work.com
+            ServerName franky-work.com
+            ServerAlias www.franky-work.com
+
+            ErrorLog ${APACHE_LOG_DIR}/error.log
+            CustomLog ${APACHE_LOG_DIR}/access.log combined
+    </VirtualHost>" > /etc/apache2/sites-available/franky-work.com.conf
+
+    a2ensite franky-work.com
+
+    mkdir /var/www/franky-work.com
+
+    cp -RT /var/www/wise /var/www/franky-work.com
 
     service apache2 restart
     ```
 
 PENJELASAN
 
-> Script dibawah ini terdapat pada **root node SSS & Garden**, untuk menjalankannya bisa langsung dengan melakukan command `bash no9.sh`
+> Script dibawah ini terdapat pada **root node SSS & Garden**, untuk menjalankannya bisa langsung dengan melakukan command `bash install.sh`
 
-- **SSS & Garden**
+- **SSS & Garden***
 
     ```
-    lynx wise.B11.com/home
+    apt-get update
+    apt-get install -y lynx
+    echo "" | apt install speedtest-cli
+    ```
+
+PENJELASAN
+
+> Script dibawah ini terdapat pada **root node Eden, SSS, & Garden**, untuk menjalankannya bisa langsung dengan melakukan command `bash no8.sh`
+
+- **SSS & Garden***
+
+    ```
+    export http_proxy="http://192.178.2.3:8080"
+    env | grep -i proxy
     ```
 
 ### Test
+PENJELASAN
 
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-2-B11-2022/main/image/Soal9/Capture1.PNG)
+![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal8-9/Capture1.PNG)
+
+PENJELASAN
+
+![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal8-9/Capture2.PNG)
+
+PENJELASAN
+
+![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal8-9/Capture3.PNG)
+
+PENJELASAN
+
+![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal8-9/Capture4.PNG)
+
+PENJELASAN
+
+![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal8-9/Capture5.PNG)
+
+PENJELASAN
+
+![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal8-9/Capture6.PNG)
+
+PENJELASAN
+
+![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal8-9/Capture7.PNG)
+
+PENJELASAN
+
+![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal8-9/Capture8.PNG)
+
+PENJELASAN
+
+![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal8-9/Capture9.PNG)
 
 
 ## Question 10
@@ -630,70 +743,57 @@ PENJELASAN
 
 PENJELASAN
 
-> Script dibawah ini terdapat pada **root node Eden**, untuk menjalankannya bisa langsung dengan melakukan command `bash no10.sh`
+> Script dibawah ini terdapat pada **root node Berlint**, untuk menjalankannya bisa langsung dengan melakukan command `bash no10.sh`
 
-- **Eden**
-
-    ```
-    a2enmod rewrite
-
-    service apache2 restart
-
-    echo "RewriteEngine On
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule (.*) /index.php/\$1 [L]" > /var/www/wise.b11.com/.htaccess
-
-    echo "<VirtualHost *:80>
-            ServerAdmin webmaster@localhost
-            DocumentRoot /var/www/wise.b11.com
-            ServerName wise.b11.com
-            ServerAlias www.wise.b11.com
-            ErrorLog \${APACHE_LOG_DIR}/error.log
-            CustomLog \${APACHE_LOG_DIR}/access.log combined
-            <Directory /var/www/wise.b11.com>
-                    Options +FollowSymLinks -Multiviews
-                    AllowOverride All
-            </Directory>
-    </VirtualHost>" > /etc/apache2/sites-available/wise.b11.com.conf
-
-    service apache2 restart
-
-    echo "<VirtualHost *:80>
-            ServerAdmin webmaster@localhost
-            DocumentRoot /var/www/eden.wise.b11.com
-            ServerName eden.wise.b11.com
-            ServerAlias www.eden.wise.b11.com
-            ErrorLog \${APACHE_LOG_DIR}/error.log
-            CustomLog \${APACHE_LOG_DIR}/access.log combined
-            <Directory /var/www/wise.b11.com>
-                    Options +FollowSymLinks -Multiviews
-                    AllowOverride All
-            </Directory>
-    </VirtualHost>" > /etc/apache2/sites-available/eden.wise.b11.com.conf
-
-    a2ensite eden.wise.b11.com
-
-    mkdir /var/www/eden.wise.b11.com
-
-    cp -RT /var/www/eden.wise/ /var/www/eden.wise.b11.com
-
-    service apache2 restart
-    ```
-
-PENJELASAN
-
-> Script dibawah ini terdapat pada **root node SSS & Garden**, untuk menjalankannya bisa langsung dengan melakukan command `bash no10.sh`
-
-- **SSS & Garden**
+- **Berlint**
 
     ```
-    lynx http://www.eden.wise.b11.com
+    ...
+
+    echo -e '
+    http_port 8080
+    visible_hostname Berlint
+
+    #---------------------------------------------------------
+    #Time
+    acl AVAILABLE_1 time MTWHF 00:00-07:59
+    acl AVAILABLE_2 time MTWHF 17:01-23:59
+    acl AVAILABLE_3 time AS 00:00-23:59
+
+    acl WORK_TIME time MTWHF 08:00-17:00
+
+    #---------------------------------------------------------
+    #Domain
+    acl RESTRICTED_DOMAIN dstdomain "/etc/squid/domain.acl"
+
+    #---------------------------------------------------------
+
+    http_access deny RESTRICTED_DOMAIN AVAILABLE_1
+    http_access deny RESTRICTED_DOMAIN AVAILABLE_2
+    http_access deny RESTRICTED_DOMAIN AVAILABLE_3
+    http_access deny all
+
+    http_access allow AVAILABLE_1
+    http_access allow AVAILABLE_2
+    http_access allow AVAILABLE_3
+    http_access deny all
+
+    http_access allow RESTRICTED_DOMAIN WORK_TIME
+
+    ' > /etc/squid/squid.conf
+
+    service squid restart
     ```
 
 ### Test
 
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-2-B11-2022/main/image/Soal10/Capture1.PNG)
+PENJELASAN
+
+![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal10/Capture1.PNG)
+
+PENJELASAN
+
+![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal10/Capture2.PNG)
 
 
 ## Question 11-12
@@ -704,43 +804,49 @@ PENJELASAN
 
 PENJELASAN
 
-> Script dibawah ini terdapat pada **root node Eden**, untuk menjalankannya bisa langsung dengan melakukan command `bash no11.sh`
+> Script dibawah ini terdapat pada **root node Berlint**, untuk menjalankannya bisa langsung dengan melakukan command `bash no11-12.sh`
 
 - **Eden**
 
     ```
-    echo "<VirtualHost *:80>
-            ServerAdmin webmaster@localhost
-            DocumentRoot /var/www/eden.wise.b11.com
-            ServerName eden.wise.b11.com
-            ServerAlias www.eden.wise.b11.com
-            <Directory /var/www/eden.wise.b11.com/public>
-                    Options +Indexes
-            </Directory>
-            ErrorLog \${APACHE_LOG_DIR}/error.log
-            CustomLog \${APACHE_LOG_DIR}/access.log combined
-            <Directory /var/www/wise.b11.com>
-                    Options +FollowSymLinks -Multiviews
-                    AllowOverride All
-            </Directory>
-    </VirtualHost>" > /etc/apache2/sites-available/eden.wise.b11.com.conf
+    ...
 
-    service apache2 restart
-    ```
+    echo -e '
+    ...
+    #---------------------------------------------------------
+    #Domain
+    acl RESTRICTED_DOMAIN dstdomain "/etc/squid/domain.acl"
 
-PENJELASAN
+    #---------------------------------------------------------
+    ...
+    #---------------------------------------------------------
+    #Limit Bandwith
+    delay_pools 1
+    delay_class 1 1
+    delay_parameters 1 16000/16000
+    delay_access 1 allow AVAILABLE_3
 
-> Script dibawah ini terdapat pada **root node SSS & Garden**, untuk menjalankannya bisa langsung dengan melakukan command `bash no11.sh`
+    #---------------------------------------------------------
+    ...
 
-- **SSS & Garden**
+    ' > /etc/squid/squid.conf
 
-    ```
-    lynx http://www.eden.wise.b11.com/public
+    service squid restart
     ```
 
 ### Test
 
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-2-B11-2022/main/image/Soal11/Capture1.PNG)
+PENJELASAN
+
+![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal11-12/Capture1.PNG)
+
+PENJELASAN
+
+![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal11-12/Capture2.PNG)
+
+PENJELASAN
+
+![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal11-12/Capture3.PNG)
 
 
 ## Kendala
