@@ -425,7 +425,7 @@ PENJELASAN
 
 ![image](https://i.ibb.co/nj66hz2/Capture1.png)
 
-![image](https://i.ibb.co/8XH99hc/Capture2.png)
+![image](https://i.ibb.co/tH2hQtj/Capture2.png)
 
 
 ## Question 6
