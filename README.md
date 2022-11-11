@@ -684,6 +684,7 @@ PENJELASAN
     apt-get update
     apt-get install -y lynx
     echo "" | apt install speedtest-cli
+    export PYTHONHTTPSVERIFY=0
     ```
 
 PENJELASAN
@@ -790,10 +791,6 @@ PENJELASAN
 PENJELASAN
 
 ![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal10/Capture1.PNG)
-
-PENJELASAN
-
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal10/Capture2.PNG)
 
 
 ## Question 11-12
