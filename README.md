@@ -215,7 +215,7 @@ PENJELASAN
 
 ### Test
 
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal1/Capture1.PNG)
+![image](https://i.ibb.co/NNdfYCX/Capture1.png)
 
 
 ## Question 2
