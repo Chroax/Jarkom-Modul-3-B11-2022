@@ -17,9 +17,9 @@
 5. [Soal 5](#Question-5)
 6. [Soal 6](#Question-6)
 7. [Soal 7](#Question-7)
-8. [Soal 8](#Question-8-9)
-9. [Soal 11](#Question-10)
-10. [Soal 12](#Question-11-12)
+8. [Soal 8-9](#Question-8-9)
+9. [Soal 10](#Question-10)
+10. [Soal 11-12](#Question-11-12)
 
 ## Topografi
 
@@ -215,7 +215,7 @@ PENJELASAN
 
 ### Test
 
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-2-B11-2022/main/image/Soal1/Capture1.PNG)
+![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal1/Capture1.PNG)
 
 
 ## Question 2
