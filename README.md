@@ -701,39 +701,39 @@ PENJELASAN
 ### Test
 PENJELASAN
 
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal8-9/Capture1.PNG)
+![image](https://i.ibb.co/QKH8JHc/Capture1.png)
 
 PENJELASAN
 
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal8-9/Capture2.PNG)
+![image](https://i.ibb.co/7yhfZtp/Capture2.png)
 
 PENJELASAN
 
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal8-9/Capture3.PNG)
+![image](https://i.ibb.co/5Wn0MMD/Capture3.png)
 
 PENJELASAN
 
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal8-9/Capture4.PNG)
+![image](https://i.ibb.co/1KhfdGZ/Capture4.png)
 
 PENJELASAN
 
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal8-9/Capture5.PNG)
+![image](https://i.ibb.co/3f9xsZ0/Capture5.png)
 
 PENJELASAN
 
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal8-9/Capture6.PNG)
+![image](https://i.ibb.co/kgMX1bm/Capture6.png)
 
 PENJELASAN
 
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal8-9/Capture7.PNG)
+![image](https://i.ibb.co/pbJCtxP/Capture7.png)
 
 PENJELASAN
 
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal8-9/Capture8.PNG)
+![image](https://i.ibb.co/H4CsgXg/Capture8.png)
 
 PENJELASAN
 
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal8-9/Capture9.PNG)
+![image](https://i.ibb.co/Fx9zRKH/Capture9.png)
 
 
 ## Question 10
