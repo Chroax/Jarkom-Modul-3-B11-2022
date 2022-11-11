@@ -790,7 +790,7 @@ PENJELASAN
 
 PENJELASAN
 
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal10/Capture1.PNG)
+![image](https://i.ibb.co/3RYSFxn/Capture1.png)
 
 
 ## Question 11-12
@@ -835,15 +835,15 @@ PENJELASAN
 
 PENJELASAN
 
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal11-12/Capture1.PNG)
+![image](https://i.ibb.co/R9CsV86/Capture1.png)
 
 PENJELASAN
 
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal11-12/Capture2.PNG)
+![image](https://i.ibb.co/T01dP74/Capture2.png)
 
 PENJELASAN
 
-![image](https://raw.githubusercontent.com/Chroax/Jarkom-Modul-3-B11-2022/main/image/Soal11-12/Capture3.PNG)
+![image](https://i.ibb.co/mvKwyts/Capture3.png)
 
 
 ## Kendala
