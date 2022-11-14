@@ -450,6 +450,14 @@ Untuk mengetest, lakukakn ping ke google.com. Jika tersambung maka sudah berhasi
 ### Script
 
 PENJELASAN
+Tambahkan kode berikut pada Switch1 
+```default-lease-time 300;
+   max-lease-time 6900;```
+   
+Tambahkan kode berikut pada Switch3
+```default-lease-time 600;
+   max-lease-time 6900;
+```
 
 > Script dibawah ini terdapat pada **root node Westalis**, untuk menjalankannya bisa langsung dengan melakukan command `bash no3-6.sh`
 
