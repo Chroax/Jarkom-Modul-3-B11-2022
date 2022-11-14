@@ -174,6 +174,11 @@ Pada initial project, kami mengubah `root/.bashrc` masing-masing node sehingga s
 ### Script
 
 PENJELASAN
+Setelah melakukakn install dhcp server, ubah config interface di isc-dhcp-server menjadi eth0.
+```INTERFACES=\"eth0\"```
+
+Kemudian lakukan ```service isc-dhcp-server start```.
+
 
 > Script dibawah ini terdapat pada **root node Westalis**, untuk menjalankannya bisa langsung dengan melakukan command `bash no1.sh`
 
