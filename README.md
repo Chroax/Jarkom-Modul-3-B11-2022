@@ -303,7 +303,10 @@ PENJELASAN
 ### Script
 
 PENJELASAN
-Buat file no3-6.sh, melalui switch1 isi dengan range yang diminta.
+Pada file no3-6.sh, di switch3 isi dengan range yang diminta.
+```range 192.178.1.50 192.178.1.88;
+   range 192.178.1.120 192.178.1.155;
+```
 
 > Script dibawah ini terdapat pada **root node Westalis**, untuk menjalankannya bisa langsung dengan melakukan command `bash no3-6.sh`
 
@@ -324,7 +327,7 @@ Buat file no3-6.sh, melalui switch1 isi dengan range yang diminta.
     ```
 
 PENJELASAN
-Lakukan tes di Client server
+Lakukan tes di SSS & Garden.
 
 - **SSS & Garden**
 
@@ -344,6 +347,10 @@ Lakukan tes di Client server
 ### Script
 
 PENJELASAN
+Pada file no3-6.sh, di switch3 isi dengan range yang diminta.
+```range 192.178.3.10 192.178.3.30;
+   range 192.178.3.60 192.178.3.85;
+```
 
 > Script dibawah ini terdapat pada **root node Westalis**, untuk menjalankannya bisa langsung dengan melakukan command `bash no3-6.sh`
 
@@ -364,6 +371,7 @@ PENJELASAN
     ```
 
 PENJELASAN
+Lakukan test di Eden, NewstonCastle & KemonoPark.
 
 - **Eden, NewstonCastle & KemonoPark**
 
