@@ -303,6 +303,7 @@ PENJELASAN
 ### Script
 
 PENJELASAN
+Buat file no3-6.sh, melalui switch1 isi dengan range yang diminta.
 
 > Script dibawah ini terdapat pada **root node Westalis**, untuk menjalankannya bisa langsung dengan melakukan command `bash no3-6.sh`
 
@@ -323,6 +324,7 @@ PENJELASAN
     ```
 
 PENJELASAN
+Lakukan tes di Client server
 
 - **SSS & Garden**
 
