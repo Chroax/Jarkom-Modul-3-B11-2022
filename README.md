@@ -391,6 +391,7 @@ Lakukan test di Eden, NewstonCastle & KemonoPark.
 ### Script
 
 PENJELASAN
+Pada WISE, buat file no5.sh lalu tambahkan konfigurasi forwarders. Selanjutnya start bind9 ```service bind9 start```.
 
 > Script dibawah ini terdapat pada **root node WISE**, untuk menjalankannya bisa langsung dengan melakukan command `bash no5.sh`
 
@@ -423,6 +424,7 @@ PENJELASAN
     ```
 
 PENJELASAN
+Untuk mengetest, lakukakn ping ke google.com. Jika tersambung maka sudah berhasil.
 
 > Script dibawah ini terdapat pada **root node Eden, NewstonCastle, KemonoPark, SSS, & Garden**, untuk menjalankannya bisa langsung dengan melakukan command `bash no5.sh`
 
