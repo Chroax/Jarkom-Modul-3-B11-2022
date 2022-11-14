@@ -173,8 +173,6 @@ Pada initial project, kami mengubah `root/.bashrc` masing-masing node sehingga s
 
 ### Script
 
-PENJELASAN
-
 Setelah melakukakn install dhcp server, ubah config interface di isc-dhcp-server menjadi eth0.
 ```INTERFACES=\"eth0\"```
 
@@ -210,8 +208,6 @@ Kemudian lakukan ```service isc-dhcp-server start```.
     service isc-dhcp-server start
     ```
 
-PENJELASAN
-
 Lakukan  ```service squid status``` untuk mengecek status dhcp di berlint.
 
 > Script dibawah ini terdapat pada **root node Berlint**, untuk menjalankannya bisa langsung dengan melakukan command `bash no1.sh`
@@ -232,7 +228,6 @@ Lakukan  ```service squid status``` untuk mengecek status dhcp di berlint.
 
 ### Script
 
-PENJELASAN
 1. Lakukan setup DHCP Relay di Ostania ```isc-dhcp-relay initscript```, ```/etc/init.d/isc-dhcp-relay```
 2. Pasang DHCP Relay dari ```/etc/init.d/isc-dhcp-relay``` ke server yang dituju dan interfacesnya.
 3. Lakukan ```service isc-dhcp-relay start```
@@ -310,8 +305,6 @@ PENJELASAN
 
 ### Script
 
-PENJELASAN
-
 Pada file no3-6.sh, di switch3 isi dengan range yang diminta.
 ```range 192.178.1.50 192.178.1.88;
    range 192.178.1.120 192.178.1.155;
@@ -335,8 +328,6 @@ Pada file no3-6.sh, di switch3 isi dengan range yang diminta.
     ...
     ```
 
-PENJELASAN
-
 Lakukan tes di SSS & Garden.
 
 - **SSS & Garden**
@@ -355,8 +346,6 @@ Lakukan tes di SSS & Garden.
 > Loid dan Franky menyusun peta tersebut dengan hati-hati dan teliti. Semua client yang ada HARUS menggunakan konfigurasi IP dari DHCP Server. Client yang melalui Switch1 mendapatkan range IP dari [prefix IP].1.50 - [prefix IP].1.88 dan [prefix IP].1.120 - [prefix IP].1.155
 
 ### Script
-
-PENJELASAN
 
 Pada file no3-6.sh, di switch3 isi dengan range yang diminta.
 ```range 192.178.3.10 192.178.3.30;
@@ -381,8 +370,6 @@ Pada file no3-6.sh, di switch3 isi dengan range yang diminta.
     ...
     ```
 
-PENJELASAN
-
 Lakukan test di Eden, NewstonCastle & KemonoPark.
 
 - **Eden, NewstonCastle & KemonoPark**
@@ -401,8 +388,6 @@ Lakukan test di Eden, NewstonCastle & KemonoPark.
 > Client mendapatkan DNS dari WISE dan client dapat terhubung dengan internet melalui DNS tersebut.
 
 ### Script
-
-PENJELASAN
 
 Pada WISE, buat file no5.sh lalu tambahkan konfigurasi forwarders. Selanjutnya start bind9 ```service bind9 start```.
 
@@ -436,8 +421,6 @@ Pada WISE, buat file no5.sh lalu tambahkan konfigurasi forwarders. Selanjutnya s
     service bind9 start
     ```
 
-PENJELASAN
-
 Untuk mengetest, lakukakn ping ke google.com. Jika tersambung maka sudah berhasil.
 
 > Script dibawah ini terdapat pada **root node Eden, NewstonCastle, KemonoPark, SSS, & Garden**, untuk menjalankannya bisa langsung dengan melakukan command `bash no5.sh`
@@ -462,8 +445,6 @@ Untuk mengetest, lakukakn ping ke google.com. Jika tersambung maka sudah berhasi
 > Lama waktu DHCP server meminjamkan alamat IP kepada Client yang melalui Switch1 selama 5 menit sedangkan pada client yang melalui Switch3 selama 10 menit. Dengan waktu maksimal yang dialokasikan untuk peminjaman alamat IP selama 115 menit.
 
 ### Script
-
-PENJELASAN
 
 Tambahkan kode berikut pada Switch1 
 ```default-lease-time 300;
@@ -499,7 +480,7 @@ Tambahkan kode berikut pada Switch3
 
 ### Script
 
-PENJELASAN
+Lakukan `service isc-dhcp-server restart`.
 
 > Script dibawah ini terdapat pada **root node Westalis**, untuk menjalankannya bisa langsung dengan melakukan command `bash no7.sh`
 
@@ -516,7 +497,7 @@ PENJELASAN
     service isc-dhcp-server restart
     ```
 
-PENJELASAN
+Lakukan `/etc/network/interfaces`.
 
 > Script dibawah ini terdapat pada **root node Eden**, untuk menjalankannya bisa langsung dengan melakukan command `bash no7.sh`
 
@@ -541,7 +522,7 @@ PENJELASAN
 
 ### Script
 
-PENJELASAN
+Lakukan `/etc/squid/squid.conf`, lalu `service squid restart`.
 
 > Script dibawah ini terdapat pada **root node Berlint**, untuk menjalankannya bisa langsung dengan melakukan command `bash no8-9.sh`
 
@@ -586,7 +567,7 @@ PENJELASAN
     service squid restart
     ```
 
-PENJELASAN
+Lakukan `/etc/bind/wise/franky-work.com` dan `/etc/bind/wise/loid-work.com`. Lalu `service bind9 restart`.
 
 > Script dibawah ini terdapat pada **root node WISE**, untuk menjalankannya bisa langsung dengan melakukan command `bash no9.sh`
 
@@ -646,7 +627,7 @@ PENJELASAN
     service bind9 restart
     ```
 
-PENJELASAN
+Lakukan `service apache2 start`
 
 > Script dibawah ini terdapat pada **root node Eden**, untuk menjalankannya bisa langsung dengan melakukan command `bash install.sh`
 
@@ -671,7 +652,7 @@ PENJELASAN
     rm wise.zip
     ```
 
-PENJELASAN
+Lakukan `/var/www/loid-work.com`, lalu `service apache2 restart`.
 
 > Script dibawah ini terdapat pada **root node Eden**, untuk menjalankannya bisa langsung dengan melakukan command `bash no9.sh`
 
@@ -712,7 +693,7 @@ PENJELASAN
     service apache2 restart
     ```
 
-PENJELASAN
+Lakukan `install -y lynx`.
 
 > Script dibawah ini terdapat pada **root node SSS & Garden**, untuk menjalankannya bisa langsung dengan melakukan command `bash install.sh`
 
@@ -725,7 +706,7 @@ PENJELASAN
     export PYTHONHTTPSVERIFY=0
     ```
 
-PENJELASAN
+Lakukan `http://192.178.2.3:8080`.
 
 > Script dibawah ini terdapat pada **root node Eden, SSS, & Garden**, untuk menjalankannya bisa langsung dengan melakukan command `bash no8.sh`
 
@@ -737,39 +718,33 @@ PENJELASAN
     ```
 
 ### Test
-PENJELASAN
+Lakukan `ping loid-work.com` dan `ping franky-work.com`.
 
 ![image](https://i.ibb.co/QKH8JHc/Capture1.png)
 
-PENJELASAN
+Lalu, akan muncul seperti di gambar berikut.
 
 ![image](https://i.ibb.co/7yhfZtp/Capture2.png)
 
-PENJELASAN
+Lakukan `env | grep -i proxy`.
 
 ![image](https://i.ibb.co/5Wn0MMD/Capture3.png)
 
-PENJELASAN
+Lalu, akan muncul seperti di gambar berikut.
 
 ![image](https://i.ibb.co/1KhfdGZ/Capture4.png)
 
-PENJELASAN
+Setelah itu, akan muncul tulisan dari `http://its.ac.id`
 
 ![image](https://i.ibb.co/3f9xsZ0/Capture5.png)
 
-PENJELASAN
-
 ![image](https://i.ibb.co/kgMX1bm/Capture6.png)
-
-PENJELASAN
 
 ![image](https://i.ibb.co/pbJCtxP/Capture7.png)
 
-PENJELASAN
+Lalu, jika memasukan link lain akan muncul seperti di gambar berikut.
 
 ![image](https://i.ibb.co/H4CsgXg/Capture8.png)
-
-PENJELASAN
 
 ![image](https://i.ibb.co/Fx9zRKH/Capture9.png)
 
@@ -780,7 +755,7 @@ PENJELASAN
 
 ### Script
 
-PENJELASAN
+Lakukan `/etc/squid/squid.conf`, lalu `service squid restart`.
 
 > Script dibawah ini terdapat pada **root node Berlint**, untuk menjalankannya bisa langsung dengan melakukan command `bash no10.sh`
 
@@ -826,7 +801,7 @@ PENJELASAN
 
 ### Test
 
-PENJELASAN
+Setelah itu, akan muncul seperti di gambar berikut.
 
 ![image](https://i.ibb.co/3RYSFxn/Capture1.png)
 
@@ -837,7 +812,7 @@ PENJELASAN
 
 ### Script
 
-PENJELASAN
+Lakukan `/etc/squid/squid.conf`, lalu `service squid restart`.
 
 > Script dibawah ini terdapat pada **root node Berlint**, untuk menjalankannya bisa langsung dengan melakukan command `bash no11-12.sh`
 
@@ -871,15 +846,15 @@ PENJELASAN
 
 ### Test
 
-PENJELASAN
+Lakukan `monday-test1.sh`.
 
 ![image](https://i.ibb.co/R9CsV86/Capture1.png)
 
-PENJELASAN
+Lakukan `monday-test2.sh`.
 
 ![image](https://i.ibb.co/T01dP74/Capture2.png)
 
-PENJELASAN
+Lakukan `speedtest`.
 
 ![image](https://i.ibb.co/mvKwyts/Capture3.png)
 
