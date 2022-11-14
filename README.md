@@ -225,6 +225,9 @@ PENJELASAN
 ### Script
 
 PENJELASAN
+1. Lakukan setup DHCP Relay di Ostania ```isc-dhcp-relay initscript```, ```/etc/init.d/isc-dhcp-relay```
+2. Pasang DHCP Relay dari ```/etc/init.d/isc-dhcp-relay``` ke server yang dituju dan interfacesnya.
+3. Lakukan ```service isc-dhcp-relay start```
 
 > Script dibawah ini terdapat pada **root node Ostania**, untuk menjalankannya bisa langsung dengan melakukan command `bash no2.sh`
 
