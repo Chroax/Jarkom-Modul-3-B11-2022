@@ -174,6 +174,7 @@ Pada initial project, kami mengubah `root/.bashrc` masing-masing node sehingga s
 ### Script
 
 PENJELASAN
+
 Setelah melakukakn install dhcp server, ubah config interface di isc-dhcp-server menjadi eth0.
 ```INTERFACES=\"eth0\"```
 
@@ -210,6 +211,7 @@ Kemudian lakukan ```service isc-dhcp-server start```.
     ```
 
 PENJELASAN
+
 Lakukan  ```service squid status``` untuk mengecek status dhcp di berlint.
 
 > Script dibawah ini terdapat pada **root node Berlint**, untuk menjalankannya bisa langsung dengan melakukan command `bash no1.sh`
@@ -309,6 +311,7 @@ PENJELASAN
 ### Script
 
 PENJELASAN
+
 Pada file no3-6.sh, di switch3 isi dengan range yang diminta.
 ```range 192.178.1.50 192.178.1.88;
    range 192.178.1.120 192.178.1.155;
@@ -333,6 +336,7 @@ Pada file no3-6.sh, di switch3 isi dengan range yang diminta.
     ```
 
 PENJELASAN
+
 Lakukan tes di SSS & Garden.
 
 - **SSS & Garden**
@@ -353,6 +357,7 @@ Lakukan tes di SSS & Garden.
 ### Script
 
 PENJELASAN
+
 Pada file no3-6.sh, di switch3 isi dengan range yang diminta.
 ```range 192.178.3.10 192.178.3.30;
    range 192.178.3.60 192.178.3.85;
@@ -377,6 +382,7 @@ Pada file no3-6.sh, di switch3 isi dengan range yang diminta.
     ```
 
 PENJELASAN
+
 Lakukan test di Eden, NewstonCastle & KemonoPark.
 
 - **Eden, NewstonCastle & KemonoPark**
@@ -397,6 +403,7 @@ Lakukan test di Eden, NewstonCastle & KemonoPark.
 ### Script
 
 PENJELASAN
+
 Pada WISE, buat file no5.sh lalu tambahkan konfigurasi forwarders. Selanjutnya start bind9 ```service bind9 start```.
 
 > Script dibawah ini terdapat pada **root node WISE**, untuk menjalankannya bisa langsung dengan melakukan command `bash no5.sh`
@@ -430,6 +437,7 @@ Pada WISE, buat file no5.sh lalu tambahkan konfigurasi forwarders. Selanjutnya s
     ```
 
 PENJELASAN
+
 Untuk mengetest, lakukakn ping ke google.com. Jika tersambung maka sudah berhasil.
 
 > Script dibawah ini terdapat pada **root node Eden, NewstonCastle, KemonoPark, SSS, & Garden**, untuk menjalankannya bisa langsung dengan melakukan command `bash no5.sh`
@@ -456,6 +464,7 @@ Untuk mengetest, lakukakn ping ke google.com. Jika tersambung maka sudah berhasi
 ### Script
 
 PENJELASAN
+
 Tambahkan kode berikut pada Switch1 
 ```default-lease-time 300;
    max-lease-time 6900;```
