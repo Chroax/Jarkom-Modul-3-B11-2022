@@ -210,6 +210,7 @@ Kemudian lakukan ```service isc-dhcp-server start```.
     ```
 
 PENJELASAN
+Lakukan  ```service squid status``` untuk mengecek status dhcp di berlint.
 
 > Script dibawah ini terdapat pada **root node Berlint**, untuk menjalankannya bisa langsung dengan melakukan command `bash no1.sh`
 
